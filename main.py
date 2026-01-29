@@ -1,0 +1,53 @@
+from menu import (
+    limpar_tela, 
+    pausar,
+    mostrar_titulo,
+    mostrar_menu
+)
+from biblioteca import(
+    cadastrar_livro,
+    nao_lidos,
+    finalizados,
+    listar_biblioteca,
+    marcar_como_finalizado,
+    excluir_livro,
+    encerrar
+)
+
+mostrar_titulo()
+
+while True:
+    mostrar_menu()
+
+    try:
+        opcao = int(input('\nEscolha uma Opção: '))
+    
+    except ValueError:
+        print('\nEntrada Inválida! Digite Apenas Números.')
+        continue
+
+
+    if opcao == 1:
+        cadastrar_livro()
+    
+    elif opcao == 2:
+        nao_lidos()
+    
+    elif opcao == 3:
+        finalizados()
+    
+    elif opcao == 4:
+        listar_biblioteca()
+    
+    elif opcao == 5:
+        marcar_como_finalizado()
+    
+    elif opcao == 6:
+        excluir_livro()
+    
+    elif opcao == 7:
+        encerrar()
+
+    else:
+        print('Opção Inválida! Tente Novamente.')
+        continue
