@@ -2,6 +2,19 @@
 from menu import pausar
 from time import sleep
 
+
+def confirmar(mensagem):
+    while True:
+        resp = input(f'{mensagem} [S/N] ').upper().strip()
+        
+        if resp == 'S':
+            return True
+        elif resp == 'N':
+            return False
+        else:
+            print('Opção Inválida! Digite S ou N.')
+
+            
 def cadastrar_livro():
     print('Cadastrar Livro (em breve).')
     pausar()
@@ -25,7 +38,7 @@ def listar_biblioteca():
 def marcar_como_finalizado():
     print('Marcar Livro como Finalizado (em breve)')
     pausar()
-    
+
 
 def excluir_livro():
     continuar_excluindo = True
@@ -43,6 +56,7 @@ def excluir_livro():
                     op = input('Deseja Excluir Outro Exemplar? [S/N] ').upper().strip()
 
                     if op == 'S':
+                        print(f'O livro {titulo} foi excluído com sucesso!')
                         break
 
                     elif op == 'N':
@@ -67,18 +81,5 @@ def excluir_livro():
 
     
 def encerrar():
-    while True:
-        resp = input('Tem Certeza que Deseja Encerrar o Programa? [S/N] ').upper().strip()
-
-        if resp == 'S':
-            print('\nEncerrando BookCatalog...\n')
-            exit()
-
-        elif resp =='N':
-            print('Voltando ao MENU PRINCIPAL...')
-            break
-
-        else:
-            print('Opção Inválida! Digite S ou N.')
-            continue
+    return confirmar('Tem Certeza que Deseja Encerrar o Programa?')
 

@@ -1,6 +1,6 @@
+from time import sleep
 from menu import (
-    limpar_tela, 
-    pausar,
+    limpar_tela,
     mostrar_titulo,
     mostrar_menu
 )
@@ -46,7 +46,10 @@ while True:
         excluir_livro()
     
     elif opcao == 7:
-        encerrar()
+        if encerrar():
+            print('\nEncerrando BookCatalog...\n')
+            sleep(0.6)
+            break
 
     else:
         print('Opção Inválida! Tente Novamente.')
