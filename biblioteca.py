@@ -31,10 +31,10 @@ def excluir_livro():
     continuar_excluindo = True
 
     while continuar_excluindo:
-        excluir_livro = input('Digite o Título que Deseja Excluir: ')
+        titulo = input('Digite o Título que Deseja Excluir: ')
 
         while True:
-            resp = input(f'Tem Certeza que Deseja Excluir {excluir_livro}? [S/N] ').upper().strip()
+            resp = input(f'Tem Certeza que Deseja Excluir {titulo}? [S/N] ').upper().strip()
 
             if resp == 'S':
                 print('LIVRO EXCLUÍDO COM SUCESSO!')

@@ -22,5 +22,5 @@ def mostrar_menu():
     print('[3] - Listar Livros Finalizados')
     print('[4] - Listar Biblioteca Completa')
     print('[5] - Marcar Livro como Finalizado')
-    print('[6] - Apagar Livro')
+    print('[6] - Excluir Livro')
     print('[7] - Sair')
