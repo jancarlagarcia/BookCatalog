@@ -17,7 +17,14 @@ def mostrar_menu():
 #LOOP
 while True:
     mostrar_menu()
-    opcao = int(input('\nEscolha uma Opção: '))
+
+    try:
+        opcao = int(input('\nEscolha uma Opção: '))
+    
+    except ValueError:
+        print('\nEntrada Inválida! Digite Apenas Números.')
+        continue
+
 
     if opcao == 1:
         print('Cadastrar Livro (em breve).')
@@ -38,8 +45,20 @@ while True:
         print('Apagar Livro')
     
     elif opcao == 7:
-        print('\nEncerrando BookCatalog...')
-        break
+        while True:
+            resp = input('Tem Certeza que Deseja Encerrar o Programa? [S/N] ').upper().strip()
+
+            if resp == 'S':
+                print('\nEncerrando BookCatalog...\n')
+                exit()
+
+            elif resp =='N':
+                print('Voltando para o Menu...')
+                break
+
+            else:
+                print('Opção Inválida! Digite S ou N.')
+                continue
 
     else:
         print('Opção Inválida! Tente Novamente.')
