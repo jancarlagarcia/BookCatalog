@@ -1,18 +1,20 @@
 #SÓ FUNÇÕES DE MENU
-
 import os
 
 def limpar_tela():
     os.system('cls')
+    
 
 def pausar():
     input('Pressione ENTER para voltar ao MENU PRINCIPAL! ')
+
 
 #TÍTULO
 def mostrar_titulo():
     print('-' * 60)
     print(f"{'BOOKCATALOG':^60}")
     print('-' * 60)
+
 
 #MENU
 def mostrar_menu():

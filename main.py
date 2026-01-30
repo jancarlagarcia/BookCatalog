@@ -5,6 +5,7 @@ from menu import (
     mostrar_titulo,
     mostrar_menu
 )
+
 from biblioteca import(
     cadastrar_livro,
     nao_lidos,
@@ -31,6 +32,7 @@ while True:
     if opcao == 1:
         limpar_tela()
         cadastrar_livro()
+        limpar_tela()
     
     elif opcao == 2:
         nao_lidos()

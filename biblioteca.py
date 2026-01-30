@@ -1,7 +1,10 @@
 #AÇÕES DO SISTEMA
+import os
 from menu import pausar
 from time import sleep
 from dados import acervo
+
+
 
 def confirmar(mensagem):
     while True:
@@ -14,32 +17,56 @@ def confirmar(mensagem):
         else:
             print('Opção Inválida! Digite S ou N.')
 
+
+def livro_existe(titulo):
+    for livro in acervo:
+        if livro['titulo'] == titulo:
+            return True
+    return False
+
             
 def cadastrar_livro():
     print('\n===   CADASTRO DE LIVRO   ===\n' )
 
     while True:
         titulo = input('Título: ').strip().title()
-        autor = input('Autor: ').strip().title()
-        genero = input('Gênero: ').strip().title()
 
-        livro = {
-            "titulo": titulo,
-            "autor": autor,
-            "genero": genero,
-            "lido": False,
-            "classificacao": None,
-            "comentario": ""
+        if livro_existe(titulo):
+            print(f'\n O livro {titulo} Já Existe No Acervo!')
+
+            if confirmar('Deseja Tentar Cadastrar Outro Livro?'):
+                continue
+            else:
+                print('Voltando ao MENU PRINCIPAL...')
+                sleep(0.6)
+                return
+        
+        break
+
+    autor = input('Autor: ').strip().title()
+    genero = input('Gênero: ').strip().title()
+
+    livro = {
+        "titulo": titulo,
+        "autor": autor,
+        "genero": genero,
+        "lido": False,
+        "classificacao": None,
+        "comentario": ""
         }
 
-        acervo.append(livro)
+    acervo.append(livro)
 
-        print('Livro Cadastrado com Sucesso!')
+    print('Livro Cadastrado com Sucesso!')
 
-        if not confirmar('Deseja Cadastrar Outro Livro?'):
-            print('Voltando ao MENU PRINCIPAL!')
-            sleep(0.6)
-            return
+    if confirmar('Deseja Cadastrar Outro Livro?'):
+        cadastrar_livro()
+
+    else:
+        print('Voltando ao MENU PRINCIPAL!')
+        sleep(0.6)
+        
+        return
 
 
 def nao_lidos():
@@ -81,4 +108,3 @@ def excluir_livro():
     
 def encerrar():
     return confirmar('Tem Certeza que Deseja Encerrar o Programa?')
-
