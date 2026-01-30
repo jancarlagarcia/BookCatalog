@@ -44,7 +44,7 @@ while True:
     
     elif opcao == 6:
         excluir_livro()
-    
+
     elif opcao == 7:
         if encerrar():
             print('\nEncerrando BookCatalog...\n')

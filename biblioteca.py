@@ -41,43 +41,20 @@ def marcar_como_finalizado():
 
 
 def excluir_livro():
-    continuar_excluindo = True
-
-    while continuar_excluindo:
+    while True:
         titulo = input('Digite o Título que Deseja Excluir: ')
 
-        while True:
-            resp = input(f'Tem Certeza que Deseja Excluir {titulo}? [S/N] ').upper().strip()
+        if  not confirmar(f'Tem Certeza que Deseja Excluir {titulo}? '): 
+            print('Exclusão Encerrada!')
+            sleep(0.6)
+            return
+        
+        print(f'O livro {titulo} foi Excluído!')
 
-            if resp == 'S':
-                print('LIVRO EXCLUÍDO COM SUCESSO!')
-
-                while True:
-                    op = input('Deseja Excluir Outro Exemplar? [S/N] ').upper().strip()
-
-                    if op == 'S':
-                        print(f'O livro {titulo} foi excluído com sucesso!')
-                        break
-
-                    elif op == 'N':
-                        print('Voltando ao MENU PRINCIPAL...')
-                        sleep(0.6)
-                        continuar_excluindo = False
-                        break
-
-                    else:
-                        print('Opção Inválida! Digite S ou N.')
-                            
-                break
-
-            elif resp == 'N':
-                print('Exclusão Encerrada.')
-                sleep(0.6)
-                continuar_excluindo = False
-                break
-
-            else: 
-                print('Opção inválida! Digite S ou N.')
+        if not confirmar('Deseja Excluir Outro Exemplar?'):
+            print('Voltando ao MENU PRINCIPAL...')
+            sleep(0.6)
+            return
 
     
 def encerrar():
