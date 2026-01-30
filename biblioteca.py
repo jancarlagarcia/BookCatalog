@@ -1,7 +1,7 @@
 #AÇÕES DO SISTEMA
 from menu import pausar
 from time import sleep
-
+from dados import acervo
 
 def confirmar(mensagem):
     while True:
@@ -16,8 +16,30 @@ def confirmar(mensagem):
 
             
 def cadastrar_livro():
-    print('Cadastrar Livro (em breve).')
-    pausar()
+    print('\n===   CADASTRO DE LIVRO   ===\n' )
+
+    while True:
+        titulo = input('Título: ').strip().title()
+        autor = input('Autor: ').strip().title()
+        genero = input('Gênero: ').strip().title()
+
+        livro = {
+            "titulo": titulo,
+            "autor": autor,
+            "genero": genero,
+            "lido": False,
+            "classificacao": None,
+            "comentario": ""
+        }
+
+        acervo.append(livro)
+
+        print('Livro Cadastrado com Sucesso!')
+
+        if not confirmar('Deseja Cadastrar Outro Livro?'):
+            print('Voltando ao MENU PRINCIPAL!')
+            sleep(0.6)
+            return
 
 
 def nao_lidos():

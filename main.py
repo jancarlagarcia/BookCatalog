@@ -1,3 +1,4 @@
+#PARTE VISÍVEL DO SISTEMA
 from time import sleep
 from menu import (
     limpar_tela,
@@ -28,6 +29,7 @@ while True:
 
 
     if opcao == 1:
+        limpar_tela()
         cadastrar_livro()
     
     elif opcao == 2:
