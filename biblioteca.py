@@ -32,7 +32,7 @@ def cadastrar_livro():
         titulo = input('Título: ').strip().title()
 
         if livro_existe(titulo):
-            print(f'\n O livro {titulo} Já Existe No Acervo!')
+            print(f'\nO livro {titulo} Já Existe No Acervo!')
 
             if confirmar('Deseja Tentar Cadastrar Outro Livro?'):
                 continue
@@ -70,9 +70,33 @@ def cadastrar_livro():
 
 
 def nao_lidos():
-    print('Listar Livros Não Lidos (em breve)')
-    pausar()
+    print('\n===   LIVROS NÃO LIDOS   ===\n' )
 
+    livros_nao_lidos = {}
+
+    for livro in acervo:
+        if not livro['lido']:
+            genero = livro['genero']
+
+            if genero not in livros_nao_lidos:
+                livros_nao_lidos['genero'] = []
+            
+            livros_nao_lidos[genero].append(livro)
+
+    if not livros_nao_lidos:
+        print('Nenhum Livro Não Lido foi Encontrado!')
+        pausar()
+        return
+
+    for genero, livros, in livros_nao_lidos.items():
+        print(f'\nGênero: {genero}')
+        print('-' * 40)
+
+        for livro in livros:
+            print(f'- Título: {livro['titulo']}')
+            print(f' Autor: {livro['autor']}')
+
+    pausar
 
 def finalizados():
     print('Listar Livros Finalizados (em breve)')

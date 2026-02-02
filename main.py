@@ -19,6 +19,7 @@ from biblioteca import(
 mostrar_titulo()
 
 while True:
+    limpar_tela()
     mostrar_menu()
 
     try:
@@ -35,6 +36,7 @@ while True:
         limpar_tela()
     
     elif opcao == 2:
+        limpar_tela()
         nao_lidos()
     
     elif opcao == 3:
