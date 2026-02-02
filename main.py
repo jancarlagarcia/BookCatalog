@@ -33,7 +33,6 @@ while True:
     if opcao == 1:
         limpar_tela()
         cadastrar_livro()
-        limpar_tela()
     
     elif opcao == 2:
         limpar_tela()

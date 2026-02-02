@@ -88,7 +88,8 @@ def nao_lidos():
         pausar()
         return
 
-    for genero, livros, in livros_nao_lidos.items():
+    for genero in sorted(livros_nao_lidos):
+        livros = livros_nao_lidos[genero]
         print(f'\nGênero: {genero}\n')
         
 
