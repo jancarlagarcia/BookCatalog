@@ -63,7 +63,7 @@ def cadastrar_livro():
         cadastrar_livro()
 
     else:
-        print('Voltando ao MENU PRINCIPAL!')
+        print('\nVoltando ao MENU PRINCIPAL!')
         sleep(0.6)
         
         return
@@ -79,7 +79,7 @@ def nao_lidos():
             genero = livro['genero']
 
             if genero not in livros_nao_lidos:
-                livros_nao_lidos['genero'] = []
+                livros_nao_lidos[genero] = []
             
             livros_nao_lidos[genero].append(livro)
 
@@ -89,14 +89,14 @@ def nao_lidos():
         return
 
     for genero, livros, in livros_nao_lidos.items():
-        print(f'\nGênero: {genero}')
-        print('-' * 40)
+        print(f'\nGênero: {genero}\n')
+        
 
         for livro in livros:
             print(f'- Título: {livro['titulo']}')
-            print(f' Autor: {livro['autor']}')
-
-    pausar
+            print(f'  Autor: {livro['autor']}\n')
+    print('-' * 47)
+    pausar()
 
 def finalizados():
     print('Listar Livros Finalizados (em breve)')

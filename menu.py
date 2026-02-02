@@ -6,7 +6,7 @@ def limpar_tela():
     
 
 def pausar():
-    input('Pressione ENTER para voltar ao MENU PRINCIPAL! ')
+    input('\nPressione ENTER para voltar ao MENU PRINCIPAL! ')
 
 
 #TÍTULO
