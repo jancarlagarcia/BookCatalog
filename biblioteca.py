@@ -100,12 +100,48 @@ def nao_lidos():
     pausar()
 
 def finalizados():
-    print('Listar Livros Finalizados (em breve)')
-    pausar()
+    print('\n===   LIVROS FINALIZADOS   ===\n' )
     
+    livros_lidos = []
+
+    for livro in acervo:
+        if livro['lido']:  
+            livros_lidos.append(livro)
+
+    if not livros_lidos:
+        print('Nenhum Livro Finalizado Foi Encontrado!')
+        pausar()
+        return
+    
+    livros_lidos_ordenados = sorted(
+        livros_lidos,
+        key = lambda livro: livro['classificacao'] or 0,
+        reverse = True
+    )
+    
+    for livro in livros_lidos_ordenados:
+        if livro['classificacao']:
+            estrelas = '⭐' * livro ['classificacao'] 
+            
+        else:
+            estrelas = 'Sem Avaliação!'
+
+        print(f"- Título: {livro['titulo']}")
+        print(f"  Autor: {livro['autor']}")
+        print(f"  Avaliação: {estrelas}\n")
+    pausar()
 
 def listar_biblioteca():
-    print('Listar Biblioteca Completa (em breve)')
+    print('\n===   ACERVO COMPLETO   ===\n' )
+
+    ordem = sorted(acervo, key = lambda livro: livro['titulo'])
+
+    for livro in ordem:
+        print(f"- Título: {livro['titulo']}")
+        print(f"  Autor: {livro['autor']}")
+        print(f"  Gênero: {livro['genero']}\n")
+
+    
     pausar()
     
 
