@@ -42,6 +42,7 @@ while True:
         finalizados()
     
     elif opcao == 4:
+        limpar_tela()
         listar_biblioteca()
     
     elif opcao == 5:

@@ -141,7 +141,20 @@ def listar_biblioteca():
         print(f"  Autor: {livro['autor']}")
         print(f"  Gênero: {livro['genero']}\n")
 
-    
+    total = len(acervo)
+    lidos = 0
+    nao_lidos = 0
+
+    for livro in acervo:
+        if livro['lido']:
+            lidos += 1
+        else:
+            nao_lidos += 1
+
+    print(f'Esta Biblioteca Contém {total} {"Título" if total == 1 else "Títulos"}.')
+    print(f'Desse Total, {nao_lidos} {"Não lido" if nao_lidos == 1 else "Não Lidos"} ', end='')
+    print(f'e {lidos} {"Finalizados" if lidos == 1 else "Finalizados"}.')
+
     pausar()
     
 
