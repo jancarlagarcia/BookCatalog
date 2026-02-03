@@ -96,7 +96,7 @@ def nao_lidos():
         for livro in livros:
             print(f"- Título: {livro['titulo']}")
             print(f"  Autor: {livro['autor']}\n")
-    print('-' * 47)
+        print('-' * 47)
     pausar()
 
 def finalizados():
