@@ -105,7 +105,7 @@ def finalizados():
     livros_lidos = []
 
     for livro in acervo:
-        if livro['lido']:  
+        if livro['lido']:
             livros_lidos.append(livro)
 
     if not livros_lidos:
@@ -159,7 +159,27 @@ def listar_biblioteca():
     
 
 def marcar_como_finalizado():
-    print('Marcar Livro como Finalizado (em breve)')
+    print('\n===   MARCAR LIVRO COMO FINALIZADO   ===\n' )
+
+    nao_lidos = []
+    
+    for livro in acervo:
+        if livro['lido'] == False:
+            nao_lidos.append(livro)
+
+    if not nao_lidos:
+        print('Não Há Livros Não Lidos Para Finalziar!')
+        pausar()
+        return
+
+    print('  Cod.  |    TÍTULO')
+    print('-' * 25)
+    print()
+    for i, livro in enumerate(nao_lidos):
+        print(f'{i+1:^8}-  {livro['titulo']}')
+
+    resp = int(input('\nDigite o Cód. do Livro que Deseja Marcar Como Lido: '))
+
     pausar()
 
 

@@ -46,6 +46,7 @@ while True:
         listar_biblioteca()
     
     elif opcao == 5:
+        limpar_tela()
         marcar_como_finalizado()
     
     elif opcao == 6:
