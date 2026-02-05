@@ -168,7 +168,7 @@ def marcar_como_finalizado():
             nao_lidos.append(livro)
 
     if not nao_lidos:
-        print('Não Há Livros Não Lidos Para Finalziar!')
+        print('Não Há Livros Não Lidos Para Finalizar!')
         pausar()
         return
 
@@ -221,20 +221,47 @@ def marcar_como_finalizado():
 
 
 def excluir_livro():
+    print('\n===   EXCLUIR LIVRO   ===\n' )
+
+    if not acervo:
+        print('Não Há Livros Para Excluir.')
+        sleep(0.6)
+        print('Voltando ao MENU PRINCIPAL...')
+        return
+    
+    print('  Cod.  |    TÍTULO')
+    print('-' * 25)
+    print()
+
+    for i, livro in enumerate(acervo):
+        print(f'{i+1:^8}-  {livro['titulo']}')
+
     while True:
-        titulo = input('Digite o Título que Deseja Excluir: ')
+        try:
+            codigo = int(input('\nDigite o Cód. do Livro Finalizado: '))
+            if 1 <= codigo <= len(acervo):
+                break
+            else:
+                print('Código Inválido!')
 
-        if  not confirmar(f'Tem Certeza que Deseja Excluir {titulo}? '): 
-            print('Exclusão Encerrada!')
-            sleep(0.6)
-            return
+        except ValueError:
+            print('Digite Apenas Número.')
+    
+    livro_escolhido = acervo[codigo - 1]
+
+    if  not confirmar(f'Tem Certeza que Deseja Excluir "{livro_escolhido['titulo']}"? '): 
+        print('Exclusão Encerrada!')
+        sleep(0.6)
+        return
         
-        print(f'O livro {titulo} foi Excluído!')
+    acervo.pop(codigo - 1)
 
-        if not confirmar('Deseja Excluir Outro Exemplar?'):
-            print('Voltando ao MENU PRINCIPAL...')
-            sleep(0.6)
-            return
+    print(f'\nO Livro "{livro_escolhido['titulo']}" Excluído Com Sucesso!')
+
+    if not confirmar('Deseja Excluir Outro Livro?'):
+        print('Voltando ao MENU PRINCIPAL...')
+        sleep(0.6)
+        return
 
     
 def encerrar():
