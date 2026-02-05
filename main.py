@@ -1,5 +1,6 @@
 #PARTE VISÍVEL DO SISTEMA
 from time import sleep
+from dados import acervo, salvar_acervo
 from menu import (
     limpar_tela,
     mostrar_titulo,
@@ -15,6 +16,7 @@ from biblioteca import(
     excluir_livro,
     encerrar
 )
+
 
 mostrar_titulo()
 

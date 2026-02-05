@@ -1,5 +1,6 @@
 #AÇÕES DO SISTEMA
 import os
+from dados import salvar_acervo
 from menu import pausar
 from time import sleep
 from dados import acervo
@@ -56,8 +57,9 @@ def cadastrar_livro():
         }
 
     acervo.append(livro)
+    salvar_acervo(acervo)
 
-    print('Livro Cadastrado com Sucesso!')
+    print('Livro Cadastrado Com Sucesso!')
 
     if confirmar('Deseja Cadastrar Outro Livro?'):
         cadastrar_livro()
@@ -84,7 +86,7 @@ def nao_lidos():
             livros_nao_lidos[genero].append(livro)
 
     if not livros_nao_lidos:
-        print('Nenhum Livro Não Lido foi Encontrado!')
+        print('Nenhum Livro Não Lido Foi Encontrado!')
         pausar()
         return
 
@@ -207,6 +209,7 @@ def marcar_como_finalizado():
             print('Digite Apenas Números.')
     
     livro_escolhido['classificacao'] = nota
+    salvar_acervo(acervo)
 
     print(f'\nO Livro "{livro_escolhido['titulo']}" Foi Avalidado com {'⭐' * nota}')
 
@@ -255,6 +258,7 @@ def excluir_livro():
         return
         
     acervo.pop(codigo - 1)
+    salvar_acervo(acervo)
 
     print(f'\nO Livro "{livro_escolhido['titulo']}" Excluído Com Sucesso!')
 
