@@ -210,7 +210,7 @@ def marcar_como_finalizado():
 
     print(f'\nO Livro "{livro_escolhido['titulo']}" Foi Avalidado com {'⭐' * nota}')
 
-    if confirmar(f'Deseja Marcar Como Finalizado Outro Livro? '):
+    if confirmar(f'Deseja Marcar Outro Livro Como Finalizado? '):
         sleep(0.3)
         return marcar_como_finalizado()
             
