@@ -153,7 +153,7 @@ def listar_biblioteca():
 
     print(f'Esta Biblioteca Contém {total} {"Título" if total == 1 else "Títulos"}.')
     print(f'Desse Total, {nao_lidos} {"Não lido" if nao_lidos == 1 else "Não Lidos"} ', end='')
-    print(f'e {lidos} {"Finalizados" if lidos == 1 else "Finalizados"}.')
+    print(f'e {lidos} {"Finalizado" if lidos == 1 else "Finalizados"}.')
 
     pausar()
     
@@ -192,9 +192,32 @@ def marcar_como_finalizado():
         
     livro_escolhido = nao_lidos[codigo - 1]
     livro_escolhido['lido'] = True
-    
 
-    pausar()
+    print(f'\nO livro "{livro_escolhido['titulo']}" Foi Marcado como FINALIZADO.')
+
+    while True:
+        try:
+            nota = int(input(f'\nQual a Avaliação Para "{livro_escolhido['titulo']}"? (1 a 5): '))
+            if 1 <= nota <= 5:
+                break
+            else:
+                print('Digite Um Número De 1 a 5.')
+        
+        except ValueError:
+            print('Digite Apenas Números.')
+    
+    livro_escolhido['classificacao'] = nota
+
+    print(f'\nO Livro "{livro_escolhido['titulo']}" Foi Avalidado com {'⭐' * nota}')
+
+    if confirmar(f'Deseja Marcar Como Finalizado Outro Livro? '):
+        sleep(0.3)
+        return marcar_como_finalizado()
+            
+    else:
+        print('Voltando ao MENU PRINCIPAL...')
+        sleep(0.6)
+        return
 
 
 def excluir_livro():
