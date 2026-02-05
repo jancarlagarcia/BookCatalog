@@ -175,10 +175,24 @@ def marcar_como_finalizado():
     print('  Cod.  |    TÍTULO')
     print('-' * 25)
     print()
+
     for i, livro in enumerate(nao_lidos):
         print(f'{i+1:^8}-  {livro['titulo']}')
 
-    resp = int(input('\nDigite o Cód. do Livro que Deseja Marcar Como Lido: '))
+    while True:
+        try:
+            codigo = int(input('\nDigite o Cód. do Livro Finalizado: '))
+            if 1 <= codigo <= len(nao_lidos):
+                break
+            else:
+                print('Código Inválido!')
+
+        except ValueError:
+            print('Digite Apenas Número.')
+        
+    livro_escolhido = nao_lidos[codigo - 1]
+    livro_escolhido['lido'] = True
+    
 
     pausar()
 
